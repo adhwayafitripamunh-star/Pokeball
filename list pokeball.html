@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleksi Lengkap Pokeball Pokemon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            background-image: linear-gradient(to bottom right, #f0f8ff, #fff0f5);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #ff5252 0%, #448aff 100%);
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-5px, -5px) rotate(0.5deg); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            color: #ffde00;
+            text-shadow: 2px 2px 0 #3b4cca, -2px -2px 0 #3b4cca;
+            margin-right: 15px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pokeball-counter {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #448aff;
+        }
+
+        .intro h2 {
+            color: #ff5252;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .intro p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding-left: 50px;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            box-shadow: 0 5px 20px rgba(68, 138, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            font-size: 1.3rem;
+        }
+
+        .filter-section {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        select {
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: none;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        select:focus {
+            outline: none;
+            box-shadow: 0 5px 20px rgba(68, 138, 255, 0.3);
+        }
+
+        .pokeball-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .pokeball-card {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .pokeball-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            padding: 25px;
+            text-align: center;
+            color: white;
+            position: relative;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pokeball-type {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .pokeball-image {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: transform 0.5s ease;
+        }
+
+        .pokeball-card:hover .pokeball-image {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        .pokeball-image img {
+            max-width: 100%;
+            max-height: 100%;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+        }
+
+        .pokeball-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .pokeball-id {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .pokeball-description {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .pokeball-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .spec-label {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 5px;
+        }
+
+        .spec-value {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .catch-rate {
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .catch-rate-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .catch-rate-fill {
+            height: 100%;
+            border-radius: 5px;
+            transition: width 1s ease;
+        }
+
+        .pokeball-availability {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .availability-badge {
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .loading {
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 60px 20px;
+            color: #448aff;
+            grid-column: 1 / -1;
+        }
+
+        .loading i {
+            margin-right: 15px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #777;
+            font-size: 0.95rem;
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+        }
+
+        .highlight {
+            color: #ff5252;
+            font-weight: bold;
+        }
+
+        /* Warna untuk tipe Pokeball */
+        .standard { background: linear-gradient(135deg, #ff5252, #ff8a80); }
+        .special { background: linear-gradient(135deg, #448aff, #80d8ff); }
+        .apricorn { background: linear-gradient(135deg, #9ccc65, #c5e1a5); }
+        .legendary { background: linear-gradient(135deg, #ffab40, #ffd180); }
+        .unique { background: linear-gradient(135deg, #b39ddb, #d1c4e9); }
+
+        /* Warna untuk rate bar */
+        .rate-low { background-color: #ff5252; }
+        .rate-medium { background-color: #ffab40; }
+        .rate-high { background-color: #9ccc65; }
+        .rate-max { background-color: #00c853; }
+
+        /* Warna untuk badge ketersediaan */
+        .badge-common { background-color: #78909c; }
+        .badge-uncommon { background-color: #26a69a; }
+        .badge-rare { background-color: #5c6bc0; }
+        .badge-very-rare { background-color: #ab47bc; }
+        .badge-legendary { background-color: #ff7043; }
+
+        /* Modal untuk detail Pokeball */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 25px;
+            color: white;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-image {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-image img {
+            width: 200px;
+            height: 200px;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+        }
+
+        .modal-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .modal-section {
+            margin-bottom: 25px;
+        }
+
+        .modal-section h3 {
+            color: #448aff;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Responsif */
+        @media (max-width: 992px) {
+            .pokeball-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-box {
+                min-width: 100%;
+            }
+            
+            .pokeball-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                max-height: 85vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .pokeball-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-baseball-ball logo"></i> Koleksi Pokeball Pokemon</h1>
+            <p class="subtitle">Temukan semua jenis Pokeball beserta informasi lengkapnya</p>
+            <div class="pokeball-counter">Total: <span id="totalPokeballs">0</span> Pokeball</div>
+        </header>
+
+        <section class="intro">
+            <h2><i class="fas fa-info-circle"></i> Apa itu Pokeball?</h2>
+            <p>Pokeball adalah perangkat yang digunakan oleh Pokemon Trainer untuk menangkap, membawa, dan menyimpan Pokemon. Setiap jenis Pokeball memiliki karakteristik, tingkat keberhasilan penangkapan, dan kegunaan yang berbeda-beda.</p>
+            <p>Halaman ini menampilkan semua jenis Pokeball yang ada di dunia Pokemon, mulai dari Pokeball standar hingga yang paling langka dan spesial.</p>
+        </section>
+
+        <div class="controls">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Cari Pokeball berdasarkan nama atau deskripsi...">
+            </div>
+            <div class="filter-section">
+                <select id="typeFilter">
+                    <option value="">Semua Tipe</option>
+                    <option value="standard">Standard</option>
+                    <option value="special">Special</option>
+                    <option value="apricorn">Apricorn</option>
+                    <option value="legendary">Legendary</option>
+                    <option value="unique">Unique</option>
+                </select>
+                <select id="availabilityFilter">
+                    <option value="">Semua Ketersediaan</option>
+                    <option value="common">Common</option>
+                    <option value="uncommon">Uncommon</option>
+                    <option value="rare">Rare</option>
+                    <option value="very-rare">Very Rare</option>
+                    <option value="legendary">Legendary</option>
+                </select>
+                <select id="sortBy">
+                    <option value="id">Urutkan berdasarkan ID</option>
+                    <option value="name">Urutkan berdasarkan Nama</option>
+                    <option value="catch-rate">Urutkan berdasarkan Catch Rate</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="pokeballContainer" class="pokeball-grid">
+            <div class="loading">
+                <i class="fas fa-spinner"></i> Memuat data Pokeball...
+            </div>
+        </div>
+
+        <!-- Modal untuk detail Pokeball -->
+        <div id="pokeballModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header" id="modalHeader">
+                    <div class="close-modal" id="closeModal">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-image">
+                        <img id="modalImage" src="" alt="Pokeball">
+                    </div>
+                    <h2 id="modalName" class="pokeball-name"></h2>
+                    <p id="modalDescription" class="pokeball-description"></p>
+                    
+                    <div class="modal-details">
+                        <div class="spec-item">
+                            <div class="spec-label">Tipe Pokeball</div>
+                            <div id="modalType" class="spec-value"></div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Tingkat Penangkapan</div>
+                            <div id="modalCatchRate" class="spec-value"></div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Efek Khusus</div>
+                            <div id="modalEffect" class="spec-value"></div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Harga</div>
+                            <div id="modalPrice" class="spec-value"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-section">
+                        <h3><i class="fas fa-chart-bar"></i> Statistik Penangkapan</h3>
+                        <div class="catch-rate">
+                            <div>Rate Penangkapan: <span id="modalRateValue" class="highlight"></span></div>
+                            <div class="catch-rate-bar">
+                                <div id="modalRateBar" class="catch-rate-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-section">
+                        <h3><i class="fas fa-map-marker-alt"></i> Ketersediaan</h3>
+                        <div id="modalAvailability" class="pokeball-availability"></div>
+                    </div>
+                    
+                    <div class="modal-section">
+                        <h3><i class="fas fa-history"></i> Sejarah & Trivia</h3>
+                        <p id="modalHistory"></p>
+                    </div>
+                    
+                    <div class="modal-section">
+                        <h3><i class="fas fa-lightbulb"></i> Tips Penggunaan</h3>
+                        <p id="modalTips"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Data Pokeball dikumpulkan dari berbagai generasi Pokemon | Dibuat untuk tujuan edukasi | &copy; 2023 Pokemon Company</p>
+        </footer>
+    </div>
+
+    <script>
+        // Data Pokeball lengkap
+        const pokeballs = [
+            {
+                id: 1,
+                name: "Poké Ball",
+                type: "standard",
+                description: "Poké Ball standar yang digunakan untuk menangkap Pokémon liar. Memiliki tingkat keberhasilan penangkapan yang normal.",
+                catchRate: 1,
+                effect: "Tidak ada efek khusus",
+                price: "200 PokéDollar",
+                availability: ["common"],
+                firstAppearance: "Generasi 1",
+                history: "Poké Ball pertama kali dikembangkan oleh Professor Westwood V di laboratoriumnya. Merupakan model dasar semua Poké Ball.",
+                tips: "Cocok untuk Pokémon liar dengan HP rendah. Gunakan di awal permainan saat sumber daya terbatas.",
+                color: "#FF5252"
+            },
+            {
+                id: 2,
+                name: "Great Ball",
+                type: "standard",
+                description: "Poké Ball dengan performa lebih baik dari Poké Ball biasa. Memiliki tingkat keberhasilan penangkapan 1.5x lebih tinggi.",
+                catchRate: 1.5,
+                effect: "1.5x catch rate dari Poké Ball biasa",
+                price: "600 PokéDollar",
+                availability: ["common", "uncommon"],
+                firstAppearance: "Generasi 1",
+                history: "Dikembangkan sebagai penyempurnaan dari Poké Ball standar. Banyak digunakan oleh trainer berpengalaman.",
+                tips: "Pilihan bagus untuk Pokémon dengan tingkat kesulitan menangkap sedang. Efektif untuk Pokémon level menengah.",
+                color: "#448AFF"
+            },
+            {
+                id: 3,
+                name: "Ultra Ball",
+                type: "standard",
+                description: "Poké Ball dengan performa sangat tinggi. Memiliki tingkat keberhasilan penangkapan 2x lebih tinggi dari Poké Ball biasa.",
+                catchRate: 2,
+                effect: "2x catch rate dari Poké Ball biasa",
+                price: "1200 PokéDollar",
+                availability: ["uncommon", "rare"],
+                firstAppearance: "Generasi 1",
+                history: "Merupakan puncak teknologi Poké Ball standar sebelum pengembangan jenis-jenis khusus.",
+                tips: "Sangat efektif untuk Pokémon langka dan sulit ditangkap. Investasi yang baik untuk Pokémon kuat.",
+                color: "#FFD600"
+            },
+            {
+                id: 4,
+                name: "Master Ball",
+                type: "legendary",
+                description: "Poké Ball terhebat yang dapat menangkap Pokémon apa pun tanpa gagal. Sangat langka dan berharga.",
+                catchRate: 255,
+                effect: "Menangkap Pokémon dengan pasti (100% success rate)",
+                price: "Tidak Dapat Dibeli",
+                availability: ["legendary"],
+                firstAppearance: "Generasi 1",
+                history: "Dikembangkan oleh Silph Co. sebagai pencapaian tertinggi teknologi Poké Ball. Hanya diproduksi sangat terbatas.",
+                tips: "Simpan untuk Pokémon legendaris atau shiny yang sangat langka. Jangan gunakan untuk Pokémon biasa!",
+                color: "#9C27B0"
+            },
+            {
+                id: 5,
+                name: "Safari Ball",
+                type: "special",
+                description: "Poké Ball khusus yang hanya digunakan di Safari Zone. Dirancang khusus untuk lingkungan Safari.",
+                catchRate: 1.5,
+                effect: "Hanya bekerja di Safari Zone",
+                price: "Tidak Dapat Dibeli",
+                availability: ["rare"],
+                firstAppearance: "Generasi 1",
+                history: "Dikembangkan khusus untuk Safari Zone di Kanto. Memiliki mekanisme unik yang hanya aktif di area tertentu.",
+                tips: "Hanya tersedia di Safari Zone. Manfaatkan kesempatan untuk menangkap Pokémon eksklusif area tersebut.",
+                color: "#4CAF50"
+            },
+            {
+                id: 6,
+                name: "Net Ball",
+                type: "special",
+                description: "Poké Ball yang efektif menangkap Pokémon tipe Bug dan Water. Didesain dengan jaring khusus.",
+                catchRate: 1,
+                effect: "3.5x catch rate untuk Bug dan Water type",
+                price: "1000 PokéDollar",
+                availability: ["uncommon"],
+                firstAppearance: "Generasi 3",
+                history: "Dikembangkan di Hoenn dengan teknologi jaring nano untuk menangkap Pokémon air dan serangga.",
+                tips: "Sempurna untuk menangkap Pokémon seperti Scyther, Gyarados, atau Butterfree. Efisiensi maksimal untuk tipe target.",
+                color: "#2196F3"
+            },
+            {
+                id: 7,
+                name: "Dive Ball",
+                type: "special",
+                description: "Poké Ball yang dirancang khusus untuk menangkap Pokémon di dalam air atau saat hujan.",
+                catchRate: 1,
+                effect: "3.5x catch rate di air atau saat hujan",
+                price: "1000 PokéDollar",
+                availability: ["uncommon"],
+                firstAppearance: "Generasi 3",
+                history: "Dikembangkan oleh tim peneliti bawah laut di Lilycove City. Tahan tekanan air dalam.",
+                tips: "Gunakan saat memancing atau menyelam. Efektif juga saat hujan turun di luar ruangan.",
+                color: "#03A9F4"
+            },
+            {
+                id: 8,
+                name: "Nest Ball",
+                type: "special",
+                description: "Poké Ball yang efektif menangkap Pokémon level rendah. Semakin rendah level Pokémon, semakin efektif.",
+                catchRate: 1,
+                effect: "Catch rate meningkat untuk Pokémon level rendah",
+                price: "1000 PokéDollar",
+                availability: ["common"],
+                firstAppearance: "Generasi 3",
+                history: "Terinspirasi dari sarang burung, dirancang untuk menangkap Pokémon muda dengan aman.",
+                tips: "Ideal untuk menangkap Pokémon level 1-30. Sangat berguna untuk breeding atau mendapatkan Pokémon dengan level dasar.",
+                color: "#8D6E63"
+            },
+            {
+                id: 9,
+                name: "Repeat Ball",
+                type: "special",
+                description: "Poké Ball yang efektif menangkap Pokémon yang sudah pernah ditangkap sebelumnya.",
+                catchRate: 1,
+                effect: "3x catch rate untuk Pokémon yang sudah ada di Pokédex",
+                price: "1000 PokéDollar",
+                availability: ["uncommon"],
+                firstAppearance: "Generasi 3",
+                history: "Dikembangkan untuk membantu trainer melengkapi koleksi Pokémon mereka.",
+                tips: "Sempurna untuk menangkap lagi Pokémon untuk breeding, atau mendapatkan yang dengan ability/IV berbeda.",
+                color: "#F44336"
+            },
+            {
+                id: 10,
+                name: "Timer Ball",
+                type: "special",
+                description: "Poké Ball yang semakin efektif seiring berjalannya waktu dalam pertempuran.",
+                catchRate: 1,
+                effect: "Catch rate meningkat setiap ronde (maks 4x setelah 10 ronde)",
+                price: "1000 PokéDollar",
+                availability: ["uncommon"],
+                firstAppearance: "Generasi 3",
+                history: "Menggunakan teknologi waktu untuk meningkatkan efektivitasnya selama pertempuran berlangsung.",
+                tips: "Gunakan untuk Pokémon yang sulit ditangkap. Semakin lama bertarung, semakin tinggi peluang sukses.",
+                color: "#FF9800"
+            },
+            {
+                id: 11,
+                name: "Luxury Ball",
+                type: "special",
+                description: "Poké Ball mewah yang meningkatkan tingkat persahabatan dengan Pokémon yang ditangkap.",
+                catchRate: 1,
+                effect: "Meningkatkan friendship gain dengan Pokémon",
+                price: "1000 PokéDollar",
+                availability: ["rare"],
+                firstAppearance: "Generasi 3",
+                history: "Dirancang untuk trainer yang ingin membangun hubungan erat dengan Pokémon mereka.",
+                tips: "Ideal untuk Pokémon yang membutuhkan friendship tinggi untuk berevolusi seperti Togepi atau Riolu.",
+                color: "#795548"
+            },
+            {
+                id: 12,
+                name: "Premier Ball",
+                type: "special",
+                description: "Poké Ball edisi khusus yang diberikan sebagai bonus saat membeli Poké Ball dalam jumlah banyak.",
+                catchRate: 1,
+                effect: "Tidak ada efek khusus (hanya kosmetik)",
+                price: "Tidak Dapat Dibeli",
+                availability: ["rare"],
+                firstAppearance: "Generasi 3",
+                history: "Awalnya hanya sebagai merchandise promosi, sekarang menjadi barang koleksi yang dicari.",
+                tips: "Gunakan untuk Pokémon spesial atau event sebagai tanda prestise. Fungsionalitas sama dengan Poké Ball biasa.",
+                color: "#FFFFFF"
+            },
+            {
+                id: 13,
+                name: "Dusk Ball",
+                type: "special",
+                description: "Poké Ball yang efektif di malam hari atau di gua dan tempat gelap.",
+                catchRate: 1,
+                effect: "3.5x catch rate di malam hari atau area gelap",
+                price: "1000 PokéDollar",
+                availability: ["uncommon"],
+                firstAppearance: "Generasi 4",
+                history: "Dikembangkan dengan sensor cahaya rendah untuk efektivitas maksimal di kondisi gelap.",
+                tips: "Sangat efektif setelah jam 6 sore atau di gua seperti Rock Tunnel atau Victory Road.",
+                color: "#455A64"
+            },
+            {
+                id: 14,
+                name: "Heal Ball",
+                type: "special",
+                description: "Poké Ball yang memulihkan HP dan status condition Pokémon yang ditangkap.",
+                catchRate: 1,
+                effect: "Memulihkan HP dan menyembuhkan status condition",
+                price: "300 PokéDollar",
+                availability: ["common"],
+                firstAppearance: "Generasi 4",
+                history: "Dikembangkan untuk trainer yang peduli dengan kesejahteraan Pokémon mereka.",
+                tips: "Berguna saat menangkap Pokémon langka yang mungkin terluka dalam pertempuran. Menghemat obat.",
+                color: "#FF80AB"
+            },
+            {
+                id: 15,
+                name: "Quick Ball",
+                type: "special",
+                description: "Poké Ball yang sangat efektif jika digunakan di awal pertempuran.",
+                catchRate: 1,
+                effect: "5x catch rate jika digunakan di ronde pertama",
+                price: "1000 PokéDollar",
+                availability: ["uncommon"],
+                firstAppearance: "Generasi 4",
+                history: "Menggunakan teknologi reaksi cepat untuk menangkap Pokémon sebelum mereka menyadarinya.",
+                tips: "Lempar di awal pertempuran untuk peluang tertinggi. Ideal untuk Pokémon yang mudah lari.",
+                color: "#00BCD4"
+            },
+            {
+                id: 16,
+                name: "Cherish Ball",
+                type: "unique",
+                description: "Poké Ball eksklusif yang hanya digunakan untuk Pokémon event spesial.",
+                catchRate: 1,
+                effect: "Tidak ada efek khusus (hanya untuk event)",
+                price: "Tidak Dapat Dibeli",
+                availability: ["very-rare"],
+                firstAppearance: "Generasi 4",
+                history: "Dirancang khusus untuk Pokémon event yang didistribusikan secara resmi.",
+                tips: "Pokémon dalam Cherish Ball biasanya adalah event exclusive dengan ribbon khusus.",
+                color: "#FF4081"
+            },
+            {
+                id: 17,
+                name: "Fast Ball",
+                type: "apricorn",
+                description: "Poké Ball buatan tangan dari Apricorn berwarna merah. Efektif untuk Pokémon yang cepat.",
+                catchRate: 1,
+                effect: "4x catch rate untuk Pokémon dengan base speed tinggi",
+                price: "Tidak Dapat Dibeli",
+                availability: ["rare"],
+                firstAppearance: "Generasi 2",
+                history: "Dibuat oleh Kurt di Azalea Town menggunakan Apricorn merah. Teknik kuno yang tetap efektif.",
+                tips: "Efektif untuk Pokémon seperti Electrode, Ninjask, atau Pokémon dengan base speed di atas 100.",
+                color: "#FF5252"
+            },
+            {
+                id: 18,
+                name: "Level Ball",
+                type: "apricorn",
+                description: "Poké Ball buatan tangan dari Apricorn berwarna kuning. Efektif jika level Pokémon kita lebih tinggi.",
+                catchRate: 1,
+                effect: "Catch rate meningkat jika Pokémon kita levelnya lebih tinggi",
+                price: "Tidak Dapat Dibeli",
+                availability: ["rare"],
+                firstAppearance: "Generasi 2",
+                history: "Dibuat oleh Kurt dari Apricorn kuning. Menggunakan prinsip hierarki level Pokémon.",
+                tips: "Bawa Pokémon level tinggi saat berburu Pokémon liar. Semakin besar selisih level, semakin efektif.",
+                color: "#FFD600"
+            },
+            {
+                id: 19,
+                name: "Lure Ball",
+                type: "apricorn",
+                description: "Poké Ball buatan tangan dari Apricorn berwarna biru. Efektif untuk Pokémon yang didapat memancing.",
+                catchRate: 1,
+                effect: "5x catch rate untuk Pokémon yang didapat memancing",
+                price: "Tidak Dapat Dibeli",
+                availability: ["rare"],
+                firstAppearance: "Generasi 2",
+                history: "Dibuat dari Apricorn biru oleh Kurt. Mengandung feromon khusus untuk menarik Pokémon air.",
+                tips: "Sempurna untuk Pokémon air yang didapat dengan memancing seperti Magikarp, Feebas, atau Dratini.",
+                color: "#448AFF"
+            },
+            {
+                id: 20,
+                name: "Heavy Ball",
+                type: "apricorn",
+                description: "Poké Ball buatan tangan dari Apricorn berwarna hitam. Efektif untuk Pokémon berat.",
+                catchRate: 0.8,
+                effect: "Catch rate meningkat untuk Pokémon berat (berbeda berdasarkan berat)",
+                price: "Tidak Dapat Dibeli",
+                availability: ["rare"],
+                firstAppearance: "Generasi 2",
+                history: "Dibuat dari Apricorn hitam. Menggunakan prinsip gravitasi untuk menangkap Pokémon berat.",
+                tips: "Efektif untuk Pokémon seperti Snorlax, Steelix, atau Onix. Kurang efektif untuk Pokémon ringan.",
+                color: "#263238"
+            },
+            {
+                id: 21,
+                name: "Love Ball",
+                type: "apricorn",
+                description: "Poké Ball buatan tangan dari Apricorn berwarna merah muda. Efektif untuk Pokémon dengan gender berlawanan.",
+                catchRate: 1,
+                effect: "8x catch rate jika Pokémon target gender berbeda dengan Pokémon kita",
+                price: "Tidak Dapat Dibeli",
+                availability: ["rare"],
+                firstAppearance: "Generasi 2",
+                history: "Dibuat dari Apricorn merah muda. Mengandung energi cinta yang meningkatkan efektivitas.",
+                tips: "Bawa Pokémon dengan gender tertentu saat berburu. Efek luar biasa jika kondisi terpenuhi.",
+                color: "#FF80AB"
+            },
+            {
+                id: 22,
+                name: "Friend Ball",
+                type: "apricorn",
+                description: "Poké Ball buatan tangan dari Apricorn berwarna hijau. Meningkatkan friendship Pokémon yang ditangkap.",
+                catchRate: 1,
+                effect: "Pokémon yang ditangkap langsung memiliki friendship 200",
+                price: "Tidak Dapat Dibeli",
+                availability: ["rare"],
+                firstAppearance: "Generasi 2",
+                history: "Dibuat dari Apricorn hijau. Mengandung energi persahabatan yang kuat.",
+                tips: "Ideal untuk Pokémon yang membutuhkan friendship tinggi untuk evolusi atau move seperti Return.",
+                color: "#4CAF50"
+            },
+            {
+                id: 23,
+                name: "Moon Ball",
+                type: "apricorn",
+                description: "Poké Ball buatan tangan dari Apricorn berwarna ungu. Efektif untuk Pokémon yang berevolusi dengan Moon Stone.",
+                catchRate: 1,
+                effect: "4x catch rate untuk Pokémon yang berevolusi dengan Moon Stone",
+                price: "Tidak Dapat Dibeli",
+                availability: ["rare"],
+                firstAppearance: "Generasi 2",
+                history: "Dibuat dari Apricorn ungu. Terinspirasi oleh cahaya bulan dan batu bulan.",
+                tips: "Efektif untuk Pokémon seperti Nidoran, Clefairy, Jigglypuff, atau Skitty.",
+                color: "#9C27B0"
+            },
+            {
+                id: 24,
+                name: "Sport Ball",
+                type: "unique",
+                description: "Poké Ball khusus yang digunakan dalam Bug-Catching Contest di National Park.",
+                catchRate: 1.5,
+                effect: "Hanya digunakan dalam Bug-Catching Contest",
+                price: "Tidak Dapat Dibeli",
+                availability: ["very-rare"],
+                firstAppearance: "Generasi 2",
+                history: "Didesain khusus untuk kompetisi menangkap serangga. Hanya tersedia selama event.",
+                tips: "Gunakan dalam Bug-Catching Contest untuk menangkap Pokémon bug dengan peluang lebih tinggi.",
+                color: "#CDDC39"
+            },
+            {
+                id: 25,
+                name: "Park Ball",
+                type: "unique",
+                description: "Poké Ball khusus yang digunakan di Pal Park untuk menangkap Pokémon yang ditransfer.",
+                catchRate: 255,
+                effect: "Selalu berhasil menangkap Pokémon di Pal Park",
+                price: "Tidak Dapat Dibeli",
+                availability: ["very-rare"],
+                firstAppearance: "Generasi 4",
+                history: "Dikembangkan khusus untuk Pal Park untuk memastikan transfer Pokémon berhasil.",
+                tips: "Hanya digunakan di Pal Park. Tidak perlu khawatir kehilangan Pokémon yang ditransfer.",
+                color: "#4CAF50"
+            },
+            {
+                id: 26,
+                name: "Dream Ball",
+                type: "unique",
+                description: "Poké Ball khusus yang digunakan di Dream World. Dapat menangkap Pokémon dengan ability Hidden.",
+                catchRate: 1,
+                effect: "Dapat menangkap Pokémon dengan Hidden Ability",
+                price: "Tidak Dapat Dibeli",
+                availability: ["very-rare"],
+                firstAppearance: "Generasi 5",
+                history: "Dikembangkan untuk Pokémon Dream World. Mengandung teknologi dream energy.",
+                tips: "Satu-satunya cara mendapatkannya dari event. Simpan untuk Pokémon dengan Hidden Ability yang diinginkan.",
+                color: "#9FA8DA"
+            },
+            {
+                id: 27,
+                name: "Beast Ball",
+                type: "legendary",
+                description: "Poké Ball eksperimental yang dirancang khusus untuk menangkap Ultra Beasts.",
+                catchRate: 0.1,
+                effect: "5x catch rate untuk Ultra Beasts, 0.1x untuk Pokémon biasa",
+                price: "Tidak Dapat Dibeli",
+                availability: ["legendary"],
+                firstAppearance: "Generasi 7",
+                history: "Dikembangkan oleh Aether Foundation untuk menangkap makhluk dari Ultra Wormhole.",
+                tips: "Hanya efektif untuk Ultra Beasts. Jangan digunakan untuk Pokémon biasa karena sangat tidak efektif.",
+                color: "#00E5FF"
+            }
+        ];
+
+        // DOM Elements
+        const pokeballContainer = document.getElementById('pokeballContainer');
+        const searchInput = document.getElementById('searchInput');
+        const typeFilter = document.getElementById('typeFilter');
+        const availabilityFilter = document.getElementById('availabilityFilter');
+        const sortBy = document.getElementById('sortBy');
+        const totalPokeballsEl = document.getElementById('totalPokeballs');
+        const modal = document.getElementById('pokeballModal');
+        const closeModal = document.getElementById('closeModal');
+        
+        // Modal elements
+        const modalHeader = document.getElementById('modalHeader');
+        const modalImage = document.getElementById('modalImage');
+        const modalName = document.getElementById('modalName');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalType = document.getElementById('modalType');
+        const modalCatchRate = document.getElementById('modalCatchRate');
+        const modalEffect = document.getElementById('modalEffect');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalRateValue = document.getElementById('modalRateValue');
+        const modalRateBar = document.getElementById('modalRateBar');
+        const modalAvailability = document.getElementById('modalAvailability');
+        const modalHistory = document.getElementById('modalHistory');
+        const modalTips = document.getElementById('modalTips');
+
+        let filteredPokeballs = [...pokeballs];
+
+        // Inisialisasi
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPokeballs();
+            totalPokeballsEl.textContent = pokeballs.length;
+            
+            // Event Listeners
+            searchInput.addEventListener('input', filterPokeballs);
+            typeFilter.addEventListener('change', filterPokeballs);
+            availabilityFilter.addEventListener('change', filterPokeballs);
+            sortBy.addEventListener('change', filterPokeballs);
+            
+            // Modal events
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+            
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+        // Render semua Pokeball
+        function renderPokeballs() {
+            pokeballContainer.innerHTML = '';
+            
+            if (filteredPokeballs.length === 0) {
+                pokeballContainer.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+                        <i class="fas fa-search" style="font-size: 3rem; color: #ccc; margin-bottom: 20px;"></i>
+                        <h3 style="color: #777;">Tidak ada Pokeball yang sesuai dengan kriteria pencarian</h3>
+                        <p>Coba gunakan kata kunci lain atau hapus filter</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            filteredPokeballs.forEach(pokeball => {
+                const card = createPokeballCard(pokeball);
+                pokeballContainer.appendChild(card);
+            });
+        }
+
+        // Buat kartu Pokeball
+        function createPokeballCard(pokeball) {
+            const card = document.createElement('div');
+            card.className = 'pokeball-card';
+            card.dataset.id = pokeball.id;
+            
+            // Tentukan kelas untuk rate bar berdasarkan catch rate
+            let rateClass = 'rate-low';
+            if (pokeball.catchRate >= 2) rateClass = 'rate-high';
+            else if (pokeball.catchRate >= 1.5) rateClass = 'rate-medium';
+            if (pokeball.catchRate >= 100) rateClass = 'rate-max';
+            
+            // Tentukan lebar rate bar (maks 100%)
+            const rateWidth = Math.min(pokeball.catchRate * 10, 100);
+            
+            // Buat badge availability
+            const availabilityBadges = pokeball.availability.map(avail => {
+                const badgeClass = `badge-${avail.replace('-', '')}`;
+                return `<span class="availability-badge ${badgeClass}">${avail}</span>`;
+            }).join('');
+            
+            card.innerHTML = `
+                <div class="card-header ${pokeball.type}">
+                    <span class="pokeball-type">${pokeball.type}</span>
+                    <div class="pokeball-image">
+                        <img src="https://via.placeholder.com/150/${pokeball.color.replace('#', '')}/FFFFFF?text=${pokeball.name.substring(0, 3)}" alt="${pokeball.name}">
+                    </div>
+                    <h3 class="pokeball-name">${pokeball.name}</h3>
+                    <div class="pokeball-id">#${pokeball.id.toString().padStart(3, '0')}</div>
+                </div>
+                <div class="card-body">
+                    <p class="pokeball-description">${pokeball.description}</p>
+                    
+                    <div class="pokeball-specs">
+                        <div class="spec-item">
+                            <div class="spec-label">Catch Rate</div>
+                            <div class="spec-value">${pokeball.catchRate}x</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Harga</div>
+                            <div class="spec-value">${pokeball.price}</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Efek</div>
+                            <div class="spec-value">${pokeball.effect.substring(0, 20)}${pokeball.effect.length > 20 ? '...' : ''}</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Muncul Pertama</div>
+                            <div class="spec-value">${pokeball.firstAppearance}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="catch-rate">
+                        <div>Tingkat Penangkapan</div>
+                        <div class="catch-rate-bar">
+                            <div class="catch-rate-fill ${rateClass}" style="width: ${rateWidth}%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="pokeball-availability">
+                        ${availabilityBadges}
+                    </div>
+                </div>
+            `;
+            
+            // Tambahkan event listener untuk membuka modal
+            card.addEventListener('click', () => {
+                openPokeballModal(pokeball);
+            });
+            
+            return card;
+        }
+
+        // Filter dan sortir Pokeball
+        function filterPokeballs() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedType = typeFilter.value;
+            const selectedAvailability = availabilityFilter.value;
+            const sortOption = sortBy.value;
+            
+            filteredPokeballs = pokeballs.filter(pokeball => {
+                // Filter berdasarkan pencarian
+                const matchesSearch = pokeball.name.toLowerCase().includes(searchTerm) || 
+                                     pokeball.description.toLowerCase().includes(searchTerm) ||
+                                     pokeball.effect.toLowerCase().includes(searchTerm);
+                
+                // Filter berdasarkan tipe
+                const matchesType = !selectedType || pokeball.type === selectedType;
+                
+                // Filter berdasarkan ketersediaan
+                const matchesAvailability = !selectedAvailability || pokeball.availability.includes(selectedAvailability);
+                
+                return matchesSearch && matchesType && matchesAvailability;
+            });
+            
+            // Sortir Pokeball
+            if (sortOption === 'name') {
+                filteredPokeballs.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (sortOption === 'catch-rate') {
+                filteredPokeballs.sort((a, b) => b.catchRate - a.catchRate);
+            } else {
+                filteredPokeballs.sort((a, b) => a.id - b.id);
+            }
+            
+            renderPokeballs();
+        }
+
+        // Buka modal dengan detail Pokeball
+        function openPokeballModal(pokeball) {
+            // Tentukan kelas untuk rate bar
+            let rateClass = 'rate-low';
+            if (pokeball.catchRate >= 2) rateClass = 'rate-high';
+            else if (pokeball.catchRate >= 1.5) rateClass = 'rate-medium';
+            if (pokeball.catchRate >= 100) rateClass = 'rate-max';
+            
+            // Tentukan lebar rate bar
+            const rateWidth = Math.min(pokeball.catchRate * 10, 100);
+            
+            // Buat badge availability
+            const availabilityBadges = pokeball.availability.map(avail => {
+                const badgeClass = `badge-${avail.replace('-', '')}`;
+                return `<span class="availability-badge ${badgeClass}">${avail}</span>`;
+            }).join('');
+            
+            // Isi data modal
+            modalHeader.className = `modal-header ${pokeball.type}`;
+            modalImage.src = `https://via.placeholder.com/200/${pokeball.color.replace('#', '')}/FFFFFF?text=${pokeball.name.substring(0, 3)}`;
+            modalImage.alt = pokeball.name;
+            modalName.textContent = pokeball.name;
+            modalDescription.textContent = pokeball.description;
+            modalType.textContent = pokeball.type.charAt(0).toUpperCase() + pokeball.type.slice(1);
+            modalCatchRate.textContent = `${pokeball.catchRate}x`;
+            modalEffect.textContent = pokeball.effect;
+            modalPrice.textContent = pokeball.price;
+            modalRateValue.textContent = `${pokeball.catchRate}x`;
+            modalRateBar.className = `catch-rate-fill ${rateClass}`;
+            modalRateBar.style.width = `${rateWidth}%`;
+            modalAvailability.innerHTML = availabilityBadges;
+            modalHistory.textContent = pokeball.history;
+            modalTips.textContent = pokeball.tips;
+            
+            // Tampilkan modal
+            modal.style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
